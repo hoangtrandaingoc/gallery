@@ -5,6 +5,7 @@ import '../SearchHeader/SearchHeader.scss';
 import {SearchContext} from '../Contexts/SearchContext';
 
 
+
 export default function SearchHeader(){
     const {handleOnChange, handleOnkeyUp, handleOnClick} = useContext(SearchContext);
 

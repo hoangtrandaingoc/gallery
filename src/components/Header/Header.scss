@@ -2,7 +2,6 @@
     position: relative;
     height: 700px;
     width: 100%;
-    // filter: brightness(50%);
     background: {
         image: url(../../image/background.jpg) ;
         size: cover;
@@ -11,10 +10,11 @@
     }
     .content{
         position: absolute;
-        top: 35%;
+        width: 80%;
+        top: 40%;
         left: 20%;
-        .search-bar{
-            border-radius: 0 !important;
+        .search-header{
+            width: 75%;
         }
         h2{
             color: #fff;
