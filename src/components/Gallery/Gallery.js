@@ -18,6 +18,7 @@ export default function Gallery(){
 
     const breakpointColumnsObj = {
         default: 3,
+        // 1024:2,
         1100: 2,
         700: 1,
         500: 1
