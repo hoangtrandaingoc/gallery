@@ -15,7 +15,7 @@ export default function SearchHeader(){
             <input
                 type="search"
                 name="photo"
-                placeholder="Search free high-resolution photos"
+                placeholder="Search free photos"
                 onChange={handleOnChange}
                 onKeyUp={handleOnkeyUp}
             >
