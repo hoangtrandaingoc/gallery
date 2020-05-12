@@ -7,11 +7,12 @@
         margin-left: 15px;
     }
     input{
-        width: 85%;
+        width: 90%;
         background-color: transparent;
         padding: 15px;
         border: none;
         &:focus{
+            border-radius: 5px;
             background-color: transparent;
             outline: none;
             &:-webkit-autofill {

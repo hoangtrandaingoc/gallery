@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Masonry from 'react-masonry-css';
 
 import ModalImage from "react-modal-image";
+// import SearchEmpty from '../SearchEmpty/SearchEmpty';
 
 export default function Gallery(){
     const [pictures, setPictures] = useState([]);
@@ -62,7 +63,6 @@ export default function Gallery(){
                                     large={picture.urls.regular}
                                     alt={picture.id}
                                 />
-                                {/* <img src={picture.urls.small}/> */}
                             </div>
                         ))
                     }
