@@ -1,0 +1,25 @@
+.search-header{
+    background-color: #fff;
+    width: 800px;
+    display: block;
+    border-radius: 5px;
+    img{
+        margin-left: 15px;
+    }
+    input{
+        background-color: #fff;
+        width: 750px;
+        padding: 15px;
+        border: none;
+        &:focus{
+            background-color: #fff;
+            outline: none;
+            &:-webkit-autofill {
+                -webkit-box-shadow: inset 0 0 0px 9999px white; //remove background key word
+            }
+        }
+    }
+
+}
+
+  

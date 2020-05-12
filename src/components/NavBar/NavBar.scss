@@ -1,0 +1,18 @@
+.navbar {
+    font-family: 'Questrial', sans-serif;
+    background-color: #fff;
+    
+    .search-bar{
+        display: block;
+    }
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 768px){
+    .nav .search-bar{
+        display: none;
+    }
+}

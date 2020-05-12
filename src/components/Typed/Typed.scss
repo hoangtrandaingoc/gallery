@@ -1,0 +1,13 @@
+.typed{
+    margin-top: 50px;
+    span{
+        color: #fff;
+    }
+    input{
+        background: transparent;
+        border: none;
+        &:focus{
+            outline: none;
+        }
+    }
+}
