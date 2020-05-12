@@ -22,3 +22,13 @@
         }
     }
 }
+
+@media (max-width: 576px) {
+    .header{
+        height: 500px;
+        .content{
+            margin-left: -35px;
+            width: 100%;
+        }
+    }
+ }
