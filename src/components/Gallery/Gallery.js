@@ -13,7 +13,7 @@ export default function Gallery(){
     const [pictures, setPictures] = useState([]);
     const [pictures2, setPictures2] = useState([]);
     const [numberPage, setNumberPage] = useState(5)
-    const {result, photo} = useContext(SearchContext);
+    const {result, photo, handleShowMoreSearch} = useContext(SearchContext);
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Gallery(){
             .then(response => setPictures2(response.data));
     });
     function handleShowMore(){
-        setNumberPage(number)
+        setNumberPage(number);
         pictures.push(...pictures2);
     }
 
@@ -60,6 +60,9 @@ export default function Gallery(){
                         ))
                     }
                 </Masonry>
+                <div className="show-more">
+                    <a onClick={handleShowMoreSearch}>Show More</a>
+                </div>
             </div>
         );
     }else{
