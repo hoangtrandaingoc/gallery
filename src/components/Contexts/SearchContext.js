@@ -6,7 +6,6 @@ import axios from 'axios';
 export const SearchContext = React.createContext();
 export function SearchProvider(props){
     const [photo, setPhoto] = useState("");
-    const [clientId, setClientId] = useState("pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0");
     const [result, setResult] = useState([]);
 
     // result next page show more
@@ -17,7 +16,8 @@ export function SearchProvider(props){
     function handleOnChange(event){
         setPhoto(event.target.value);
     }
-
+    
+    const clientId = "pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0";
     const url1 = "https://api.unsplash.com/search/photos/?page=1&query=" 
             + photo 
             + "&client_id="

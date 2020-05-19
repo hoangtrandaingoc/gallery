@@ -11,7 +11,7 @@ import ModalImage from "react-modal-image";
 
 export default function Gallery(){
     let [pictures, setPictures] = useState([]);
-    let [numberPage, setNumberPage] = useState(1)
+    let [numberPage, setNumberPage] = useState(2)
 
     const {result, photo, handleShowMoreSearch} = useContext(SearchContext);
     
