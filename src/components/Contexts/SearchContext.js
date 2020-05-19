@@ -10,56 +10,48 @@ export function SearchProvider(props){
     const [result, setResult] = useState([]);
 
     // result next page show more
-    const [result2, setResult2] = useState([]);
-    const [numberPage, setNumberPage] = useState(2)
+    let [numberPage, setNumberPage] = useState(1)
+
 
 
     function handleOnChange(event){
         setPhoto(event.target.value);
     }
 
-    function handleOnkeyUp(event){
-        if (event.keyCode === 13){
-            const url = "https://api.unsplash.com/search/photos/?page=1&query=" 
+    const url1 = "https://api.unsplash.com/search/photos/?page=1&query=" 
             + photo 
             + "&client_id="
             +clientId;
 
-            axios.get(url).then(response => {
+    function handleOnkeyUp(event){
+        if (event.keyCode === 13){
+            axios.get(url1).then(response => {
                 setResult(response.data.results);
             })
         }
     }
-    
-    function handleOnClick(event){
-        const url = "https://api.unsplash.com/search/photos/?page=1&query=" 
-            + photo 
-            + "&client_id="
-            +clientId;
 
-            axios.get(url).then(response => {
-                setResult(response.data.results);
-            })
+    function handleOnClick(event){
+        axios.get(url1).then(response => {
+            setResult(response.data.results);
+        })
     }
+    
+    console.log(result);
 
     //handle showmore api
-    const number = numberPage + 2;
-    const url = "https://api.unsplash.com/search/photos/?page=1&query=" 
-            + photo 
-            + "&client_id="
-            + clientId
-            + "&page="
-            + numberPage;
-    useEffect(() => {
-        axios.get(url)
-            .then(response => {
-                setResult2(response.data.results);
-            }
-    )});
+    async function fetchAPI() {
+        let newPage = numberPage +1;
+        let url = "https://api.unsplash.com/search/photos/?query=" + photo + "&client_id=" + clientId + "&page=" + newPage;
+        let res = await axios.get(url);
+        result.push(...res.data.results);
+        console.log(result);
+        setResult(result);
+        setNumberPage(newPage);
+    }
 
     function handleShowMoreSearch(event){
-        setNumberPage(number);
-        result.push(...result2);
+        fetchAPI();
     }
 
  return (

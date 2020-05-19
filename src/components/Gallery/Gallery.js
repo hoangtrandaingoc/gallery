@@ -10,26 +10,32 @@ import ModalImage from "react-modal-image";
 // import SearchEmpty from '../SearchEmpty/SearchEmpty';
 
 export default function Gallery(){
-    const [pictures, setPictures] = useState([]);
-    const [pictures2, setPictures2] = useState([]);
-    const [numberPage, setNumberPage] = useState(5)
+    let [pictures, setPictures] = useState([]);
+    let [numberPage, setNumberPage] = useState(1)
+
     const {result, photo, handleShowMoreSearch} = useContext(SearchContext);
-
-
+    
     useEffect(() => {
-        axios.get("https://api.unsplash.com/photos?client_id=pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0")
-            .then(response => setPictures(response.data));
+        const url = "https://api.unsplash.com/photos?client_id=pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0";
+        axios.get(url)
+            .then(response => {
+                setPictures(response.data)
+            });
     },[]);
 
-    const number = numberPage + 5;
-    const url = "https://api.unsplash.com/photos?client_id=pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0&page=" + numberPage;
-    useEffect(() => {
-        axios.get(url)
-            .then(response => setPictures2(response.data));
-    });
-    function handleShowMore(){
-        setNumberPage(number);
-        pictures.push(...pictures2);
+
+      async function fetchAPI() {
+        let newPage = numberPage +1;
+        let url = "https://api.unsplash.com/photos?client_id=pb-ttGQo0vNFGv8XksU4fLGtamKA_oqDl8zbUTXnur0&page=" + newPage;
+        let res = await axios.get(url);
+        pictures.push(...res.data);
+        console.log(pictures);
+        setPictures(pictures);
+        setNumberPage(newPage);
+    }
+
+    function handleShowMore(){ 
+        fetchAPI()
     }
 
 
